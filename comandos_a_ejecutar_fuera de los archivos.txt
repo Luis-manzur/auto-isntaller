@@ -1,0 +1,38 @@
+-------------PARA EL MERGE
+
+sudo /opt/raspberry-commands/manage.sh makemigrations --merge
+
+--aceptas
+
+--luego:
+
+sudo /opt/raspberry-commands/manage.sh migrate
+
+-------------PARA CREAR EL USUARIO
+
+sudo /opt/raspberry-commands/manage.sh adduser ticketing-lane1
+nombre: [enter]
+apellido: [enter]
+role: remote_gate_operator
+password: ticketing-lane1
+
+------------PARA QUE NO CAMBIE EL TTYUSB0
+
+lsusb
+
+--verificar cuales son el idVendor y el idProduct del USB-SERIAL, el de los conversores que se usan ahorita son 1a86 y 7523 respectivamente
+
+sudo nano /etc/udev/rules.d/99-usb.rules
+
+--En el archivo escribir la línea
+
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", SYMLINK+="ttyUSB0"
+--Presionar:
+ctrl+s
+ctrl+x
+
+--ejecutar
+sudo udevadm control --reload-rules
+
+--Reconectar el conversor USB-SERIAL
+
