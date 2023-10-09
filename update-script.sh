@@ -1,7 +1,8 @@
 #!/bin/bash
 
+$(git pull > a.txt)
 # Ejecutar git pull y filtrar la salida con grep
-if git pull | grep -q "Enumerating objects"; then
+if tail -n 100 a.txt | grep -q "file changed"; then
         # Ejecutar comandos adicionales
         echo "Actualizando..."
         # Agrega aquí los comandos que deseas ejecutar cuando hay actualizaciones
@@ -16,6 +17,5 @@ if git pull | grep -q "Enumerating objects"; then
         rm -rf raspberry-machine
         # Restart Apache server
         sudo systemctl restart apache2
-else
-    echo "NO HAY ACTUALIZACIONES"
+        rm a.txt
 fi
