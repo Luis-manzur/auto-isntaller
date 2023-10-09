@@ -4,7 +4,7 @@
 git pull
 
 # Check if there are new changes
-if [[ $(git status -uno | grep "Your branch is behind") ]]; then
+if [[ $(git status -uno | grep "Enumerating objects") ]]; then
 	# Fetched new data, unzip the file
 	unzip tolls-raspberry-api_py3.9.2_release.zip
 	# Rename the unzipped folder
