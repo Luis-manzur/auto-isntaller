@@ -2,7 +2,7 @@
 output=$(git pull)
 
 # Verificar si la salida contiene "Enumerating objects"
-if [[ $output == *"Enumerating objects"* ]]; then
+if [[ $(git pull | grep -num "Enumerating objects")]]; then
         # Ejecutar comandos adicionales
         echo "Actualizando..."
         # Agrega aquí los comandos que deseas ejecutar cuando hay actualizaciones
