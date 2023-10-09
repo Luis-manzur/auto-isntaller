@@ -12,5 +12,5 @@ if [[ $(git pull -uno | grep "Enumerating objects") ]]; then
 	# Delete the folder
 	rm -rf raspberry-machine
 	# Restart Apache server
-	sudo sysemctl restart apache2
+	sudo systemctl restart apache2
 fi
