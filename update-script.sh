@@ -20,3 +20,5 @@ if [[ $output == *"Enumerating objects"* ]]; then
 else
     echo "NO HAY ACTUALIZACIONES"
 fi
+
+
