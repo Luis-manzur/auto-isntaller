@@ -11,6 +11,8 @@ def run_command(command):
 
     print(result.stdout)
 
+
+
 # REPLACE PROJECT FOLDER
 run_command(['sudo', 'rm', '-r', '/opt/raspberry-machine'])
 run_command(['sudo', 'cp', '-r', 'raspberry-machine', '/opt/'])
