@@ -47,5 +47,4 @@ run_command(command)
 run_command(['sudo', '/opt/raspberry-commands/manage.sh', 'makemigrations'])
 run_command(['sudo', '/opt/raspberry-commands/manage.sh', 'migrate'])
 
-
-    
+  
