@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Ejecutar git pull y filtrar la salida con grep
-output=$(git pull | grep "Enumerating objects")
+# Ejecutar git pull y capturar la salida en una variable
+output=$(git pull 2>&1)
 
-# Verificar si se encontró la cadena "Enumerating objects"
-if [[ -n $output ]]; then
+# Verificar si la salida contiene "Enumerating objects"
+if echo "$output" | grep -q "Enumerating objects"; then
         # Ejecutar comandos adicionales
         echo "Actualizando..."
         # Agrega aquí los comandos que deseas ejecutar cuando hay actualizaciones
