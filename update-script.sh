@@ -1,10 +1,8 @@
 #!/bin/bash
 
-# Perform git pull
-git pull
 
 # Check if there are new changes
-if [[ $(git status -uno | grep "Enumerating objects") ]]; then
+if [[ $(git pull -uno | grep "Enumerating objects") ]]; then
 	# Fetched new data, unzip the file
 	unzip tolls-raspberry-api_py3.9.2_release.zip
 	# Rename the unzipped folder
@@ -14,5 +12,5 @@ if [[ $(git status -uno | grep "Enumerating objects") ]]; then
 	# Delete the folder
 	rm -rf raspberry-machine
 	# Restart Apache server
-	sudo sysemctl restart apache2
+	sudo systemctl restart apache2
 fi
