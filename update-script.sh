@@ -2,7 +2,7 @@
 
 $(git pull > a.txt)
 # Ejecutar git pull y filtrar la salida con grep
-if tail -n 100 a.txt | grep -q "file changed"; then
+if tail -n 100 a.txt | grep -q "change"; then
         # Ejecutar comandos adicionales
         echo "Actualizando..."
         # Fetched new data, unzip the file
