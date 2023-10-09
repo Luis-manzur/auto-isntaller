@@ -2,7 +2,7 @@
 
 
 # Check if there are new changes
-if [[ $(git pull | grep "remote: Enumerating objects") ]]; then
+if [[  $(echo git pull | grep "remote: Enumerating objects") ]]; then
 	echo "SI HAY NUEVA ACTUALIZACION"
     	# Fetched new data, unzip the file
 	unzip tolls-raspberry-api_py3.9.2_release.zip
