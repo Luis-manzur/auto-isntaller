@@ -23,3 +23,4 @@ sudo systemctl restart apache2; tail -fn 100 /var/log/apache2/raspberry/api-erro
 
 Fin de la actualizacion
   
+p
