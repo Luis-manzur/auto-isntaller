@@ -16,4 +16,5 @@ if tail -n 100 a.txt | grep -q "change"; then
         # Restart Apache server
         sudo systemctl restart apache2
         rm a.txt
+else rm a.txt
 fi
