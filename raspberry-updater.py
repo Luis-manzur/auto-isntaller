@@ -31,7 +31,7 @@ crontab_cmd = 'crontab -'
 cron_job = '* * * * * tail -n 10000 /var/log/apache2/raspberry/api-error.log > /var/log/apache2/raspberry/api-error.tmp && mv /var/log/apache2/raspberry/api-error.tmp /var/log/apache2/raspberry/api-error.log\n'
 
 # Crear o editar el crontab
-subprocess.run(crontab_cmd, input=cron_job.encode(), shell=True, check=True)
+#subprocess.run(crontab_cmd, input=cron_job.encode(), shell=True, check=True)
 
 command = ['sudo', 'chmod', 'u+rw', '/var/log/apache2/raspberry/api-error.log']
 run_command(command)
