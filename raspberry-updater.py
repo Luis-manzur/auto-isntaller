@@ -25,10 +25,10 @@ run_command(['sudo', 'cp', 'tag-pub-v2', '/etc/tolls/'])
 run_command(['sudo', 'chown', '-R', 'www-data:www-data', '/etc/tolls/tag-pub-v2'])
 
 # Comando para crear o editar el crontab
-crontab_cmd = 'crontab -'
+#crontab_cmd = 'crontab -'
 
 # Contenido del cron job que se agregará al crontab
-cron_job = '* * * * * tail -n 10000 /var/log/apache2/raspberry/api-error.log > /var/log/apache2/raspberry/api-error.tmp && mv /var/log/apache2/raspberry/api-error.tmp /var/log/apache2/raspberry/api-error.log\n'
+#cron_job = '* * * * * tail -n 10000 /var/log/apache2/raspberry/api-error.log > /var/log/apache2/raspberry/api-error.tmp && mv /var/log/apache2/raspberry/api-error.tmp /var/log/apache2/raspberry/api-error.log\n'
 
 # Crear o editar el crontab
 #subprocess.run(crontab_cmd, input=cron_job.encode(), shell=True, check=True)
