@@ -120,6 +120,7 @@ def run_func(func):
         grant_apache_permissions()
 
 
+
 def main_menu():
     while True:
         choice = input('Choose an option:\n1. Run all functions\n2. Run a specific function\n3. Exit\n')
