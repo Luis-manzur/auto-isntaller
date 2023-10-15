@@ -1,7 +1,6 @@
 import subprocess
 import os
 
-
 def print_result(result):
     if result.returncode == 0:
         print('Command executed successfully')
