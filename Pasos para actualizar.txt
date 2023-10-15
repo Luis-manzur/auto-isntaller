@@ -1,4 +1,4 @@
-Pegar el compilado Cuidado con la direccion IP y la carpeta Descargas podria llamarse Downloads, 
+--- Pegar el compilado Cuidado con la direccion IP y la carpeta Descargas podria llamarse Downloads, 
 
 scp tolls-raspberry-api_3.9.2_release.zip pi@192.168.10.13:/home/pi/Descargas/
 
@@ -7,7 +7,7 @@ cd /home/pi/Descargas
 unzip tolls-raspberry-api_3.9.2_release.zip
 
 
-CUIDADO. LA CARPETA PODRIA LLAMARSE installer2 o installer3
+--- CUIDADO. LA CARPETA PODRIA LLAMARSE installer2 o installer3
 
 rm -r installer/raspberry-machine/*
 
@@ -20,4 +20,6 @@ cp /etc/tolls/api.env .env
 python3 raspberry-updater.py
 
 sudo systemctl restart apache2; tail -fn 100 /var/log/apache2/raspberry/api-error.log | cut -c 70-
+
+
 
