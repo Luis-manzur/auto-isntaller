@@ -101,7 +101,7 @@ def create_venv():
     run_command(command)
     
     
-    run_command(command)
+    run_command(command) 
 
     print('\n\nVenv created\n\n')
 
