@@ -6,7 +6,6 @@ cd /home/pi/Descargas
 
 unzip tolls-raspberry-api_3.9.2_release.zip
 
-
 --- CUIDADO. LA CARPETA PODRIA LLAMARSE installer2 o installer3 ---
 
 rm -r installer/raspberry-machine/*
