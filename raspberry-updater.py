@@ -33,7 +33,7 @@ run_command(['sudo', 'chown', '-R', 'www-data:www-data', '/etc/tolls/tag-pub-v2'
 
 # Crear o editar el crontab
 #subprocess.run(crontab_cmd, input=cron_job.encode(), shell=True, check=True)
-
+#
 command = ['sudo', 'chmod', 'u+rw', '/var/log/apache2/raspberry/api-error.log']
 run_command(command)
 # UPDATE DEPENDENCIES
