@@ -19,3 +19,4 @@ cp /etc/tolls/api.env .env
 python3 raspberry-updater.py
 
 sudo systemctl restart apache2; tail -fn 100 /var/log/apache2/raspberry/api-error.log | cut -c 70-
+
