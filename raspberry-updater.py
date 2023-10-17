@@ -14,7 +14,7 @@ def run_command(command):
     
 
 # REPLACE PROJECT FOLDER
-#run_command(['sudo', 'mkdir', '/opt/raspberry-machine'])
+run_command(['sudo', 'mkdir', '/opt/raspberry-machine'])
 run_command(['sudo', 'rm', '-r', '/opt/raspberry-machine'])
 run_command(['sudo', 'cp', '-r', 'raspberry-machine', '/opt/'])
 run_command(['sudo', 'chown', '-R', 'www-data:www-data', '/opt/raspberry-machine'])
