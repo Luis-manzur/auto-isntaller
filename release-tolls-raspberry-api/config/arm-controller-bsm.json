@@ -1,0 +1,64 @@
+{
+    "name": "arm controller",
+    "initial": "st_init",
+
+    "states": [
+        {"name": "st_init", "on_enter": "on_enter_init", "on_exit": ""},
+        {"name": "st_gate_arm_up", "on_enter": "on_enter_open_gate", "on_exit": ""},
+        {"name": "st_gate_arm_down", "on_enter": "on_enter_close_gate", "on_exit": ""},
+        {"name": "st_temporized_message", "on_enter": "on_display_message", "on_exit": "", "timeout": 5, "on_timeout": "on_message_time_out"},
+        {"name": "st_operation_success", "on_enter": "on_operation_success", "on_exit": ""}
+    ],
+
+    "events": [
+        "ev_init",
+        "cmd_open_gate",
+        "cmd_close_gate",
+        "ev_operation_failed",
+        "ev_display_message",
+        "ev_operation_success",
+        "ev_back_to_main"
+    ],
+    "transitions": [
+        {
+            "trigger": "ev_init",
+            "source": "st_init",
+            "dest": "st_gate_arm_down",
+            "conditions": "",
+            "before": "",
+            "after": ""
+        },
+        {
+            "trigger": "cmd_open_gate",
+            "source": "*",
+            "dest": "st_gate_arm_up",
+            "conditions": "",
+            "before": "",
+            "after": ""
+        },
+        {
+            "trigger": "cmd_close_gate",
+            "source": "st_gate_arm_up",
+            "dest": "st_gate_arm_down",
+            "conditions": "",
+            "before": "",
+            "after": ""
+        },
+        {
+            "trigger": "ev_operation_success",
+            "source": "*",
+            "dest": "st_operation_success"
+        },
+        {
+            "trigger": "ev_back_to_main",
+            "source": "*",
+            "dest": "st_gate_arm_down"
+        },
+        {
+            "trigger": "ev_display_message",
+            "source": "*",
+            "dest": "st_temporized_message",
+            "before": ""
+        }
+    ]
+}

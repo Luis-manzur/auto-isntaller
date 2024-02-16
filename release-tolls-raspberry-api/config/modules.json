@@ -1,0 +1,144 @@
+[
+    {
+        "name": "API Caller",
+        "uid": "api_caller",
+        "class": "remote_connector.api_caller.ApiCaller",
+        "config": {
+            "servers": {
+                "venvias": {
+                    "base_url": "{{VENVIAS_API_URL}}",
+                    "login_fn": "venvias_deferred_login_function",
+                    "method": "POST",
+                    "authentication_info": {
+                        "authorization_method": "venvias",
+                        "username": "{{VENVIAS_API_USER}}",
+                        "password": "{{VENVIAS_API_PASSW}}",
+                        "authentication_api": "login"
+                    },
+                    "apis": {
+                        "login": {
+                            "url": "/login/",
+                            "is_authentication_api": true
+                        },
+                        "logout": {
+                            "url": "/logout/"
+                        },
+                        "build_version": {
+                            "url": "/build-version/",
+                            "method": "GET",
+                            "return_type": "str"
+                        },
+                        "check_card": {
+                            "url": "/antenna-sales-detail/create/",
+                            "method": "POST",
+                            "timeout": 100.0,
+                            "return_type": "json"
+                        },
+                        "black_list": {
+                            "url": "/blacklist/list-compressed/"
+                        },
+                        "report_tag": {
+                            "url": "/blacklist/report-tag/"
+                        },
+                        "ping": {
+                            "url": "/runtime/ping/"
+                        },
+                        "check_balance": {
+                            "url": "/tag-accounts/check-balance-by-tid/"
+                        }
+                    }
+                },
+                "fontur": {
+                    "base_url": "{{FONTUR_API_URL}}",
+                    "login_fn": "fontur_deferred_login_function",
+                    "method": "POST",
+                    "authentication_info": {
+                        "authorization_method": "fontur",
+                        "username": "{{FONTUR_API_USER}}",
+                        "password": "{{FONTUR_API_PASSW}}",
+                        "authentication_api": "login"
+                    },
+                    "apis": {
+                        "login": {
+                            "url": "/login/",
+                            "is_authentication_api": true
+                        },
+                        "logout": {
+                            "url": "/logout/"
+                        },
+                        "register_transit": {
+                            "url": "/runtime/deferred/register-transit/"
+                        },
+                        "register_external_api_call": {
+                            "url": "/runtime/deferred/register-external-api-call/"
+                        }
+                    }
+                },
+                "arcorp": {
+                    "base_url": "{{ARCORP_API_URL}}",
+                    "method": "POST",
+                    "authentication_info": {
+                        "authorization_method": "arcorp"
+                    },
+                    "apis": {
+                        "register_transit": {
+                            "url": "/transit/"
+                        }
+                    }
+                },
+                "cobremex": {
+                    "base_url": "{{COBREMEX_API_URL}}",
+                    "method": "POST",
+                    "login_fn": "fontur_deferred_login_function",
+                    "authentication_info": {
+                        "authorization_method": "cobremex",
+                        "authorization": " Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2ZW52aWFzIiwiZXhwIjoxNjg4NTAyOTE4fQ.a25SUcl3Re4mE17owIwaOM8wRWN_nvmR_hlipTjY6H1-byMxaLaqCwjykzcKXybZxcmKFIMfJIWyMtHky3xgGw",
+                        "application_id": "oidbhywgdydywdyed",
+                        "username": "{{COBREMEX_API_USER}}",
+                        "password": "{{COBREMEX_API_PASSW}}",
+                        "authentication_api": "login"
+                    },
+                    "apis": {
+                        "pass_authorization": {
+                            "url": "/api/transit/pass/authorization"
+                        },
+                        "login": {
+                            "url": "/login",
+                            "is_authentication_api": true
+                        }
+                    }
+                },
+                "transit_viewer": {
+                    "base_url": "{{TRANSIT_VIEWER_URL}}",
+                    "authentication_info": {
+                        "authorization_method": "transit_viewer"
+                    },
+                    "method": "POST",
+                    "apis": {
+                        "transit": {
+                            "url": "/",
+                            "method": "POST"
+                        }
+                    }
+                }
+            },
+            "default_method": "POST",
+            "default_timeout": 10.0,
+            "default_return_type": "json",
+            "default_use_session": true,
+            "session_path": ""
+        }
+    },
+    {
+        "name": "System State, Statistics and Active Screen",
+        "uid": "sys_state",
+        "class": "system_state.system_state.SystemState",
+        "config": {}
+    },
+    {
+        "name": "Send deferred messages to Regional",
+        "uid": "deferred_messages",
+        "class": "deferred_messages.deferred_messages.DeferredMessages",
+        "config": {}
+    }
+]

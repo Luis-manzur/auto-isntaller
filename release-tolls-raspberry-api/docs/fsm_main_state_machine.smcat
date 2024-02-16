@@ -1,0 +1,29 @@
+/* Ticket Vending Machine
+   https://state-machine-cat.js.org/
+*/
+
+st_init,
+st_non_operative [color="orange"] : display error,
+st_login [color="blue"] : username ____
+password ____,
+
+logged_in {
+  st_main_menu [color="blue"] : display menu,
+  st_tsc_operation;
+};
+
+
+initial => st_init;
+st_init => st_non_operative : ev_init;
+st_non_operative => st_login : ev_operative;
+st_login => st_main_menu [color="blue"] : ev_user_logged_in 
+[login correct];
+logged_in => st_login [color="red"] : ev_user_logged_out;
+
+st_tsc_operation => st_main_menu : ev_card_removed;
+
+
+st_main_menu => st_tsc_operation : ev_card_inserted / 
+before_processing_card_operation;
+
+logged_in => st_non_operative [color="red"] : ev_error;

@@ -1,0 +1,10 @@
+-r ./requirements-dev.txt
+
+#Camera
+opencv-python==4.6.0.66
+
+#Antenna
+uhfReaderApi
+
+#GPIO
+RPi.GPIO

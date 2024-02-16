@@ -1,0 +1,89 @@
+{
+    "name": "camera",
+    "initial": "st_waiting_image",
+
+    "states": [
+        {"name": "st_init", "on_enter": "on_enter_init", "on_exit": ""},
+        {"name": "st_disable", "on_enter": "on_enter_disabled",  "on_exit": ""},
+        {"name": "st_taking_image", "on_enter": "on_enter_take_image",  "on_exit": ""},
+        {"name": "st_waiting_image", "on_enter": "on_enter_waiting_image", "on_exit": ""},
+        {"name": "st_processing_image", "on_enter": "on_enter_process_image", "on_exit": ""},
+        {"name": "st_temporized_message", "on_enter": "on_display_message", "on_exit": "", "timeout": 5, "on_timeout": "on_message_time_out"},
+        {"name": "st_operation_success", "on_enter": "on_operation_success", "on_exit": ""}
+    ],
+    "events": [
+        "ev_init",
+        "ev_disable",
+        "ev_operative",
+        "ev_take_image",
+        "ev_process_image",
+        "ev_process_success",
+        "ev_operation_failed",
+        "ev_display_message",
+        "ev_operation_success",
+        "ev_back_to_main"
+    ],
+    "transitions": [
+        {
+            "trigger": "ev_init",
+            "source": "st_init",
+            "dest": "st_disable",
+            "conditions": "",
+            "before": "",
+            "after": ""
+                    },
+        {
+            "trigger": "ev_disable",
+            "source": "*",
+            "dest": "st_disable",
+            "conditions": "",
+            "before": "",
+            "after": ""
+                    },
+        {
+            "trigger": "ev_operative",
+            "source": "st_disable",
+            "dest": "st_waiting_image",
+            "conditions": "",
+            "before": "",
+            "after": ""
+        },
+        {
+            "trigger": "ev_take_image",
+            "source": "st_waiting_image",
+            "dest": "st_taking_image",
+            "conditions": "",
+            "before": "",
+            "after": ""
+        },
+        {
+            "trigger": "ev_process_image",
+            "source": "st_taking_image",
+            "dest": "st_processing_image",
+            "conditions": "",
+            "before": "",
+            "after": ""
+        },
+        {
+            "trigger": "ev_operation_success",
+            "source": "*",
+            "dest": "st_operation_success"
+        },
+        {
+            "trigger": "ev_operation_failed",
+            "source": "*",
+            "dest": "st_waiting_image"
+        },
+        {
+            "trigger": "ev_display_message",
+            "source": "*",
+            "dest": "st_temporized_message",
+            "before": ""
+        },
+        {
+            "trigger": "ev_back_to_main",
+            "source": "*",
+            "dest": "st_disable"
+        }
+    ]
+}

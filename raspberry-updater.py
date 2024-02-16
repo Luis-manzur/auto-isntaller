@@ -47,6 +47,7 @@ command = ['sudo', 'chmod', '+x', '/opt/raspberry-commands/manage.sh']
 run_command(command)
 
 
+run_command(['sudo', '/opt/raspberry-commands/manage.sh', 'migrate'])
 run_command(['sudo', '/opt/raspberry-commands/manage.sh', 'makemigrations'])
 run_command(['sudo', '/opt/raspberry-commands/manage.sh', 'migrate'])
 

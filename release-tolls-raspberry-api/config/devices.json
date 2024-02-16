@@ -1,0 +1,61 @@
+[
+   {
+       "name": "ARM CONTROLLER",
+       "uid": "gate",
+       "class": "arm_controller.arm_thread.Gate",
+       "config": {
+           "device_type": "gate",
+           "device_code": "402",
+           "bsm": "arm-controller-bsm.json",
+           "no_pin": 20,
+           "nc_pin": 21,
+           "gate_opener_pin": 23,
+           "gate_closer_pin": 24
+
+       }
+   },
+   {
+       "name": "ANTENNA",
+      "uid": "antenna",
+      "class": "antenna.antenna.Antenna",
+      "config": {
+          "device_type": "antenna",
+          "device_code": "403",
+          "bsm": "antenna-bsm.json",
+          "data0_pin": 14,
+          "data1_pin": 15
+      }
+   },
+  {
+    "name": "GATE LOOP",
+    "uid": "radar",
+    "class": "gate_loop.gate_loop_thread.GateLoop",
+    "config": {
+      "device_type": "radar",
+      "device_code": "404",
+      "bsm": "gate-loop-bsm.json",
+      "data_pin": 3
+    }
+  },
+  {
+    "name": "BOOTH LOOP",
+    "uid": "loop",
+    "class": "booth_loop.booth_loop_thread.BoothLoop",
+    "config": {
+      "device_type": "loop",
+      "device_code": "404",
+      "bsm": "booth-loop-bsm.json",
+      "data_pin": 3
+    }
+  },
+  {
+    "name": "CAMERA",
+    "uid": "camera",
+    "class": "camera.camera.Camera",
+    "config": {
+      "device_type": "camera",
+      "device_code": "405",
+      "bsm": "camera-bsm.json"
+    }
+  }
+]
