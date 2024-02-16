@@ -13,7 +13,7 @@ def run_command(command):
     
 try:
     run_command(['sudo', 'mkdir', '/opt/raspberry-machine'])
-except Excetion as e:
+except Exception as e:
     print(f"ERROR: FALLO EN: {e}")
     
 # REPLACE PROJECT FOLDER
